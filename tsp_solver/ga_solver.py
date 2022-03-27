@@ -1,6 +1,6 @@
 from random import randrange
 from numpy.random import randint, permutation
-from util import path_cost
+from utils import path_cost
 
 class GeneticTSP:
     def __init__(self, N=40, M=1000, gens=100, k=10, distances=None):

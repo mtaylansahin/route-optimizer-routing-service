@@ -1,6 +1,6 @@
 from greedy import solve_tsp
 from ga_solver import GeneticTSP
-from util import initialize_problem_space, path_cost
+from utils import initialize_problem_space, path_cost
 
 N = 50
 distances = initialize_problem_space(N)
