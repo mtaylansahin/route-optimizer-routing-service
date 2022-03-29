@@ -4,7 +4,7 @@ from utils import initialize_problem_space, path_cost
 
 N = 50
 distances = initialize_problem_space(N)
-# print(distances)
+print(distances)
 greedy_path = solve_tsp(distances)
 print(path_cost(distances, greedy_path))
 print('*************************')

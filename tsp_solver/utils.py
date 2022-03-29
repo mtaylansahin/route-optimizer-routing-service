@@ -43,3 +43,15 @@ def path_cost(distance_matrix, path):
             dist += distance_matrix[j][i]
         j = i
     return dist
+
+json_dict = {"coords": [ {"x": 15.2551, "y": 42.5237},
+                {"x": 15.1561, "y": 42.4237},
+                {"x": 16.1561, "y": 42.6237},
+                {"x": 17.1661, "y": 12.5237}]}
+
+def create_distance_matrix(coords):
+    for coord in coords:
+        x, y = coord["x"], coord["y"] 
+        print(x, y)
+
+# create_distance_matrix(json_dict["coords"])
