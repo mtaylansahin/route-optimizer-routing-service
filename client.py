@@ -1,15 +1,9 @@
 import requests
 
-BASE = "http://localhost:5000/"
+BASE = "http://localhost:8000/"
 
-response = requests.put(BASE + 'video/1', {'name':'first video', 'views':20, 'like':5})
+response = requests.post(BASE + 'greedy', json={'num_nodes':5, 'distances': [[0], [1, 0], [3, 2, 0], [5, 1, 4, 0], [9, 12, 21, 3, 0]]})
 print(response.json())
 
-response = requests.get(BASE + 'video/1')
-print(response.json())
-
-response = requests.delete(BASE + 'video/1')
-print(response)
-
-response = requests.get(BASE + 'video/1')
+response = requests.post(BASE + 'genetic', json={'num_nodes':5, 'distances': [[0], [1, 0], [3, 2, 0], [5, 1, 4, 0], [9, 12, 21, 3, 0]]})
 print(response.json())
