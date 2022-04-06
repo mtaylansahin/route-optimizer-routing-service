@@ -1,3 +1,4 @@
+from math import sqrt
 from random import randrange
 
  # Initialize given number of nodes and random distance edges between them
@@ -44,14 +45,29 @@ def path_cost(distance_matrix, path):
         j = i
     return dist
 
-json_dict = {"coords": [ {"x": 15.2551, "y": 42.5237},
-                {"x": 15.1561, "y": 42.4237},
-                {"x": 16.1561, "y": 42.6237},
-                {"x": 17.1661, "y": 12.5237}]}
+def calculate_distance(c1, c2):
+    """
+    Calculate euclidian distance between 2 coordinates
+    c1: coordinate tuple in the form (x, y)
+    c2: coordinate tuple in the form (x, y)
+    returns: float distance, euclidian distance between c1 and c2 up to 5 decimal points
+    """
+    x_diff = (c1[0] - c2[0]) ** 2
+    y_diff = (c1[1] - c2[1]) ** 2
+    dist = sqrt(x_diff + y_diff)
+
+    return round(dist, 5)
 
 def create_distance_matrix(coords):
-    for coord in coords:
-        x, y = coord["x"], coord["y"] 
-        print(x, y)
+    dists = []
+    prev_coords = []
+    for i, coord in enumerate(coords):
+        x, y = coord["x"], coord["y"]
+        temp_dist = []
+        for c in prev_coords:
+            temp_dist.append(calculate_distance(c, (x, y)))
+        temp_dist.append(0.0)
+        dists.append(temp_dist)
 
-# create_distance_matrix(json_dict["coords"])
+        prev_coords.append((x, y))
+    return dists
