@@ -1,5 +1,4 @@
 import pathlib
-from turtle import distance
 from fastapi import FastAPI
 from pydantic import BaseModel
 
